@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gray-900 text-cyan-100;
+  }
+}
+/* 
+@layer components {
+  .glitch-text {
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-500 to-cyan-400;
+    text-shadow: 
+      2px 2px #0ff3,
+      -2px -2px #f0f3;
+    animation: glitch 2s infinite;
+  }
+}
+
+@keyframes glitch {
+  0%, 100% {
+    text-shadow: 
+      2px 2px #0ff3,
+      -2px -2px #f0f3;
+  }
+  25% {
+    text-shadow: 
+      -2px 2px #0ff3,
+      2px -2px #f0f3;
+  }
+  50% {
+    text-shadow: 
+      2px -2px #f0f3,
+      -2px 2px #0ff3;
+  }
+  75% {
+    text-shadow: 
+      -2px -2px #f0f3,
+      2px 2px #0ff3;
+  }
+} */
+
+
+@layer components {
+  .glitch-text {
+    text-shadow: 
+      2px 2px #0ff,
+      -2px -2px #f0f;
+    animation: glitch 1s infinite;
+  }
+}
+
+@keyframes glitch {
+  0% {
+    text-shadow: 2px 2px #0ff, -2px -2px #f0f;
+  }
+  25% {
+    text-shadow: -2px 2px #0ff, 2px -2px #f0f;
+  }
+  50% {
+    text-shadow: 2px -2px #0ff, -2px 2px #f0f;
+  }
+  75% {
+    text-shadow: -2px -2px #0ff, 2px 2px #f0f;
+  }
+  100% {
+    text-shadow: 2px 2px #0ff, -2px -2px #f0f;
+  }
+}
