@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import {
   FaLinkedin,
   FaGithub,
-  FaTwitter,
   FaInstagram,
   FaEnvelope,
   FaPhone,
@@ -12,8 +11,9 @@ import {
   FaHeart,
   FaImage,
 } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 import { PiFinnTheHumanDuotone } from "react-icons/pi";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const Display = () => {
 
@@ -43,8 +43,8 @@ const Display = () => {
         return <FaLinkedin className="text-4xl text-zinc-200 hover:text-zinc-400 transition duration-200" />;
       case "GitHub":
         return <FaGithub className="text-4xl text-zinc-200 hover:text-zinc-400 transition duration-200" />;
-      case "Twitter":
-        return <FaTwitter className="text-4xl text-zinc-200 hover:text-zinc-400 transition duration-200" />;
+      case "X":
+        return <FaXTwitter className="text-4xl text-zinc-200 hover:text-zinc-400 transition duration-200" />;
       case "Instagram":
         return <FaInstagram className="text-4xl text-zinc-200 hover:text-zinc-400 transition duration-200" />;
       case "Mail":
@@ -66,7 +66,14 @@ const Display = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
         
-      ><p className="text-center  text-5xl"><PiFinnTheHumanDuotone className="inline"/></p>
+      >
+        <motion.p
+          className="text-center text-5xl"
+          animate={{ rotate: [0, 10, -10, 10, -10, 0] }}
+          transition={{ repeat: Infinity, duration: 0.4, repeatDelay: 2 }}
+        >
+          <PiFinnTheHumanDuotone className="inline text-blue-300" />
+        </motion.p>
         {user_name.toUpperCase()}
       </motion.div>
       <motion.div
@@ -81,7 +88,7 @@ const Display = () => {
             href={link.link}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center space-x-4 bg-zinc-800 border-2 border-white rounded-lg px-6 py-2 hover:bg-zinc-700 transition duration-200 w-full"
+            className="flex items-center space-x-4 bg-zinc-900 border-2 border-white rounded-lg px-6 py-2 hover:bg-zinc-700 transition duration-200 w-full"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
@@ -100,16 +107,17 @@ const Display = () => {
           </motion.a>
         ))}
       </motion.div>
+
       <motion.div
         className="text-zinc-600 text-center mt-16 text-[13px] bottom-1"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.4 }}
-      >
-        <p>© 2025 SocNet. All rights reserved.</p>
+      > <a href="/" className="text-[13px] p-2 bg-zinc-900 hover:bg-zinc-800 text-zinc-500 my-2 rounded-lg animate-pulse">make your ' SocNet '</a>
+        <p className="mt-4">© 2025 SocNet. All rights reserved.</p>
         <p className="pb-6">
           made with <FaHeart className="inline"></FaHeart> by{" "}
-          <a href="https://x.com/ganesh_kondaka" className="underline text-zinc-500">
+          <a href="https://x.com/ganesh_kondaka" className="underline text-zinc-500 hover:text-purple-800">
             Ganesh
           </a>
         </p>

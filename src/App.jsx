@@ -66,22 +66,22 @@ const Landing = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.6 }}
           >
-            <div className="flex items-center gap-4 bg-zinc-900 p-4 rounded-lg border border-white hover:shadow-lg hover:shadow-gray-500/50 transition-all space-x-4">
+            <div className="flex items-center gap-4 bg-zinc-800 p-4 rounded-lg  hover:shadow-lg hover:shadow-gray-500/50 transition-all space-x-4">
               <FaLinkedin size={24} />
               <h3>LinkedIn</h3>
             </div>
 
-            <div className="flex items-center gap-4 bg-zinc-900 p-4 rounded-lg border border-white hover:shadow-lg hover:shadow-gray-500/50 transition-all space-x-4">
+            <div className="flex items-center gap-4 bg-zinc-800 p-4 rounded-lg  hover:shadow-lg hover:shadow-gray-500/50 transition-all space-x-4">
               <FaGithub size={24} />
               <h3>GitHub</h3>
             </div>
 
-            <div className="flex items-center gap-4 bg-zinc-900 p-4 rounded-lg border border-white hover:shadow-lg hover:shadow-gray-500/50 transition-all space-x-4">
+            <div className="flex items-center gap-4 bg-zinc-800 p-4 rounded-lg  hover:shadow-lg hover:shadow-gray-500/50 transition-all space-x-4">
               <FaTwitter size={24} />
               <h3>Twitter</h3>
             </div>
 
-            <div className="flex items-center gap-4 bg-zinc-900 p-4 rounded-lg border border-white hover:shadow-lg hover:shadow-gray-500/50 transition-all space-x-4">
+            <div className="flex items-center gap-4 bg-zinc-800 p-4 rounded-lg  hover:shadow-lg hover:shadow-gray-500/50 transition-all space-x-4">
               <FaInstagram size={24} />
               <h3>Instagram</h3>
             </div>
@@ -90,10 +90,11 @@ const Landing = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.8 }}
+            className='mt-8'
           >
             <Link
               to="/register"
-              className="mt-8 px-8 py-4 bg-zinc-900 hover:bg-zinc-800 text-white font-bold no-underline rounded-lg border border-white hover:shadow-lg hover:shadow-gray-500/50 transition-all"
+              className="mt-8 px-8 py-4 bg-zinc-900 hover:bg-zinc-800 text-white font-8old no-underline rounded-lg  hover:shadow-lg hover:shadow-gray-500/50 transition-all"
             >
               Make your SocNet
             </Link>

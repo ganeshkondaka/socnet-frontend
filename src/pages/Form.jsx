@@ -22,7 +22,7 @@ export default function Form() {
 
   const handle_submit = async (e) => {
     e.preventDefault();
-    if(fields.length === 1 && fields[0].platform === "" && fields[0].link === "") {
+    if(fields.length === 1 || fields[0].platform === "" || fields[0].link === "") {
       return alert('Please add atleast one link');
     }
 
@@ -68,14 +68,14 @@ export default function Form() {
                 </option>
                 <option value="LinkedIn">LinkedIn</option>
                 <option value="GitHub">GitHub</option>
-                <option value="Twitter">Twitter</option>
+                <option value="X">X</option>
                 <option value="Instagram">Instagram</option>
                 <option value="Mail">Mail</option>
                 <option value="Phone">Phone</option>
                 <option value="Telegram">Telegram</option>
               </select>
               <input
-                type="url"
+                type="text"
                 placeholder="Enter link"
                 value={field.link}
                 onChange={(e) => handleInputChange(index, "link", e.target.value)}
@@ -85,6 +85,7 @@ export default function Form() {
             </motion.div>
           ))}
           <motion.button
+          type="button"
             onClick={handleAddField}
             className="w-full bg-zinc-700 text-zinc-200 font-bold py-2 rounded-lg border-4 border-zinc-500 pixel-text hover:bg-zinc-600 hover:border-zinc-400 transition duration-200"
             whileHover={{ scale: 1.05 }}
