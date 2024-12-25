@@ -5,15 +5,14 @@ import Form from './pages/Form';
 import { FaGithub, FaInstagram, FaLinkedin, FaTwitter } from 'react-icons/fa';
 import Display from './pages/Display';
 import SignUp from './pages/Signup';
-import SignIn from './pages/Signin';
 
 function App() {
   const links = [
     { platform: "LinkedIn", link: "https://www.linkedin.com/in/example" },
     { platform: "GitHub", link: "https://github.com/example" },
     { platform: "Twitter", link: "https://github.com/example" },
-    { platform: "Mail", link: "https://github.com/example" },
-    { platform: "Phone", link: "https://github.com/example" },
+    { platform: "Mail", link: "megatronoptimus@gmail.com" },
+    { platform: "Phone", link: "9999999999" },
     { platform: "Telegram", link: "https://github.com/example" },
     { platform: "Instagram", link: "https://github.com/example" },
 
@@ -24,7 +23,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/form" element={<Form />} />
-        <Route path="/display" element={<Display links={links}/>} />
+        <Route path="/display/:user_name" element={<Display links={links}/>} />
         <Route path="/register" element={<SignUp links={links}/>} />
         {/* <Route path="/signin" element={<SignIn links={links}/>} /> */}
       </Routes>
@@ -69,7 +68,7 @@ const Landing = () => {
           </div>
 
           <Link
-            to="/form"
+            to="/register"
             className="mt-8 px-8 py-4 bg-zinc-900 hover:bg-zinc-800 text-white font-bold no-underline rounded-lg border border-white hover:shadow-lg hover:shadow-gray-500/50 transition-all"
           >
             Make your SocNet

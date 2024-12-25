@@ -1,11 +1,17 @@
 import axios from "axios";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Form() {
-  const [fields, setFields] = useState([{ platform: "", link: "" }]);
+  const navigate=useNavigate()
+
+  const user_id=localStorage.getItem('user_id')
+  const user_name=localStorage.getItem('user_name')
+
+  const [fields, setFields] = useState([{ platform: "", link: "" ,user:user_id}]); 
 
   const handleAddField = () => {
-    setFields([...fields, { platform: "", link: "" }]);
+    setFields([...fields, { platform: "", link: "" ,user:user_id }]);
   };
 
   const handleInputChange = (index, key, value) => {
@@ -14,24 +20,35 @@ export default function Form() {
     setFields(updatedFields);
   };
 
-  const handle_submit = async()=>{
-     const reponse=await axios.post('http://localhost:5000/data',fields)
+  const handle_submit = async(e)=>{
+    e.preventDefault();
+    try {
+      const reponse=await axios.post('http://localhost:3000/data',fields)
+      console.log('response',reponse.data)
+      navigate(`/display/${user_name}`)
+    } catch (error) {
+      console.log('error',error)
+    }
     
   }
+// const as=localStorage.getItem('a_user')
+// console.log('as',as)
 
   return (
     <div className="min-h-screen flex flex-col items-center bg-black text-zinc-200 py-8 px-4 pixel-bg">
       <h1 className="text-3xl font-bold mb-6 text-zinc-100 pixel-text border-4 border-zinc-500 p-2">
-        Social Media Links
+        Add u'r Links
       </h1>
         <form onSubmit={handle_submit} >
-          <div className="w-full max-w-2xl space-y-4">
+          <div className="w-full max-w-2xl space-y-4 flex flex-col items-center">
               {fields.map((field, index) => (
                 <div key={index} className="flex flex-col md:flex-row md:space-x-4 items-center space-y-4 md:space-y-0 border-4 border-zinc-500 p-4 rounded-lg w-auto hover:bg-zinc-800 transition duration-200">
                   <p className="hidden md:block">{index + 1}</p>
                   <select
+                  name="platform names"
                     value={field.platform}
                     onChange={(e) => handleInputChange(index, "platform", e.target.value)}
+                    required
                     className="font-mono block w-full md:w-auto bg-zinc-800 text-zinc-200 border-4 border-zinc-600 rounded-md px-2 py-1 pixel-text hover:border-zinc-400 focus:outline-none focus:ring focus:ring-zinc-600"
                   >
                     <option className="" value="" disabled >
@@ -50,6 +67,7 @@ export default function Form() {
                     placeholder="Enter link"
                     value={field.link}
                     onChange={(e) => handleInputChange(index, "link", e.target.value)}
+                    required
                     className="block w-full md:w-full bg-zinc-800 text-zinc-200 border-4 border-zinc-600 rounded-md px-2 py-1 pixel-text hover:border-zinc-400 focus:outline-none focus:ring focus:ring-zinc-600"
                   />
                 </div>
@@ -58,10 +76,14 @@ export default function Form() {
                 onClick={handleAddField}
                 className="w-full bg-zinc-700 text-zinc-200 font-bold py-2 rounded-lg border-4 border-zinc-500 pixel-text hover:bg-zinc-600 hover:border-zinc-400 transition duration-200"
               >
-                Add Another One
+                Add Another One +
               </button>
 
-              <button type="submit">submit</button>
+              <button 
+                type="submit"
+                className="w-auto bg-blue-700 text-zinc-200 font-bold py-2 rounded-lg border-4 border-zinc-500 pixel-text hover:bg-zinc-600 hover:border-zinc-400 transition duration-200 p-3 ">
+                submit
+              </button>
 
           </div>
         </form>
