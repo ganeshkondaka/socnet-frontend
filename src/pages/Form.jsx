@@ -28,7 +28,7 @@ export default function Form() {
 
     try {
       const response = await axios.post('http://localhost:3000/data', fields);
-      console.log('response', response.data);
+      // console.log('response', response.data);
       navigate(`/display/${user_name}`);
     } catch (error) {
       console.log('error', error);

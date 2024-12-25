@@ -24,7 +24,7 @@ const Display = () => {
 
     try {
       const response = await axios.get(`http://localhost:3000/getsocials/${user_name}`)
-      console.log('the response', response.data.usersocials)
+      // console.log('the response', response.data.usersocials)
       setlinks(response.data.usersocials)
     } catch (error) {
       console.log('error', error)
@@ -34,7 +34,7 @@ const Display = () => {
 
   useEffect(() => {
     fetch_function();
-    console.log('all user links :', links)
+    // console.log('all user links :', links)
   }, []);
 
   const renderIcon = (platform) => {
