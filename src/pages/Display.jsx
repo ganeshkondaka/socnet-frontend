@@ -23,7 +23,8 @@ const Display = () => {
   const fetch_function = async () => {
 
     try {
-      const response = await axios.get(`http://localhost:3000/getsocials/${user_name}`)
+      const response = await axios.get(`https://socnet-backend.vercel.app/getsocials/${user_name}`)
+      // const response = await axios.get(`http://localhost:3000/getsocials/${user_name}`)
       // console.log('the response', response.data.usersocials)
       setlinks(response.data.usersocials)
     } catch (error) {

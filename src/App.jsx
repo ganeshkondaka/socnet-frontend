@@ -50,7 +50,7 @@ const Landing = () => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <CircuitBoard size={80} className="text-blue-400 animate-pulse" />
+            <CircuitBoard size={80} className="text-blue-400 animate-pulse hover:animate-spin" />
           </motion.div>
           <motion.p
             className="text-xl text-center max-w-xl"
@@ -58,7 +58,7 @@ const Landing = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.4 }}
           >
-            Unite your digital presence in a card. Share all your social media profiles with a single, sleek interface.
+            Share all your social media profiles with a single, sleek interface. Unite your digital presence in a card. 
           </motion.p>
           <motion.div
             className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full"
@@ -66,22 +66,22 @@ const Landing = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.6 }}
           >
-            <div className="flex items-center gap-4 bg-zinc-800 p-4 rounded-lg  hover:shadow-lg hover:shadow-gray-500/50 transition-all space-x-4">
+            <div className="flex items-center gap-4 bg-zinc-800 p-4 rounded-lg border-2 hover:shadow-lg hover:shadow-gray-500/50 transition-all space-x-4">
               <FaLinkedin size={24} />
               <h3>LinkedIn</h3>
             </div>
 
-            <div className="flex items-center gap-4 bg-zinc-800 p-4 rounded-lg  hover:shadow-lg hover:shadow-gray-500/50 transition-all space-x-4">
+            <div className="flex items-center gap-4 bg-zinc-800 p-4 rounded-lg border-2 hover:shadow-lg hover:shadow-gray-500/50 transition-all space-x-4">
               <FaGithub size={24} />
               <h3>GitHub</h3>
             </div>
 
-            <div className="flex items-center gap-4 bg-zinc-800 p-4 rounded-lg  hover:shadow-lg hover:shadow-gray-500/50 transition-all space-x-4">
+            <div className="flex items-center gap-4 bg-zinc-800 p-4 rounded-lg border-2 hover:shadow-lg hover:shadow-gray-500/50 transition-all space-x-4">
               <FaTwitter size={24} />
               <h3>Twitter</h3>
             </div>
 
-            <div className="flex items-center gap-4 bg-zinc-800 p-4 rounded-lg  hover:shadow-lg hover:shadow-gray-500/50 transition-all space-x-4">
+            <div className="flex items-center gap-4 bg-zinc-800 p-4 rounded-lg border-2 hover:shadow-lg hover:shadow-gray-500/50 transition-all space-x-4">
               <FaInstagram size={24} />
               <h3>Instagram</h3>
             </div>
@@ -94,7 +94,7 @@ const Landing = () => {
           >
             <Link
               to="/register"
-              className="mt-8 px-8 py-4 bg-zinc-900 hover:bg-zinc-800 text-white font-8old no-underline rounded-lg  hover:shadow-lg hover:shadow-gray-500/50 transition-all"
+              className="mt-8 px-8 py-4 bg-zinc-900 hover:bg-zinc-800 text-white font-8old no-underline rounded-lg border-2 hover:shadow-lg hover:shadow-gray-500/50 transition-all"
             >
               Make your SocNet
             </Link>

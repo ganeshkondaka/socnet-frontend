@@ -10,7 +10,8 @@ const SignUp = () => {
   const handle_submit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:3000/signup', { username: user });
+      const response = await axios.post('https://socnet-backend.vercel.app/signup', { username: user });
+      // const response = await axios.post('http://localhost:3000/signup', { username: user });
       // console.log('user registered', response.data.new_user);
       localStorage.setItem("user_id", response.data.new_user._id);
       localStorage.setItem("user_name", response.data.new_user.username);
