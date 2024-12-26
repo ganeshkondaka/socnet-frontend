@@ -13,7 +13,9 @@ const AllUsers = () => {
 
     const fetchUsers = async () => {
         if (admin !== secret) {
+            setLoading(false);
             return alert("Unauthorized...! you are not admin");
+
         }
         try {
             const response = await axios.get(`https://socnet-backend.vercel.app/all/${admin}`);
@@ -24,12 +26,14 @@ const AllUsers = () => {
             console.log("error", error.response.data.message);
             setLoading(false);
             return alert(error.response.data.message);
+        }finally {
+            setLoading(false);
         }
     };
 
     const deleteUser = async (username) => {
         if (admin !== secret) {
-            return alert("Unauthorized...! you are not admin");
+            return alert("Unauthorized...!! you are not admin");
         }
         alert(`Are you sure you want to delete ${username}`);
         try {
