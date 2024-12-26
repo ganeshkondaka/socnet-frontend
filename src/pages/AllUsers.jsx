@@ -22,7 +22,7 @@ const AllUsers = () => {
             // const response = await axios.get(`http://localhost:3000/all/${admin}`);
             setUsers(response.data.users);
             setLoading(false);
-            console.log("users by axios", response.data.users);
+            // console.log("users by axios", response.data.users);
         } catch (error) {
             console.log("error", error.response.data.message);
             setLoading(false);
@@ -33,7 +33,7 @@ const AllUsers = () => {
     };
 
     const deleteUser = async (username) => {
-            console.log('process', secret)
+            // console.log('process', secret)
 
         if (admin !== secret) {
             setLoading(false);
