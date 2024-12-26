@@ -6,6 +6,7 @@ import Form from './pages/Form';
 import { FaGithub, FaInstagram, FaLinkedin, FaTwitter } from 'react-icons/fa';
 import Display from './pages/Display';
 import SignUp from './pages/Signup';
+import AllUsers from './pages/AllUsers';
 
 function App() {
   const links = [
@@ -26,6 +27,8 @@ function App() {
         <Route path="/form" element={<Form />} />
         <Route path="/display/:user_name" element={<Display links={links}/>} />
         <Route path="/register" element={<SignUp links={links}/>} />
+        <Route path="/superuser/:admin" element={<AllUsers />} />
+        {/* <Route path="/:admin" element={<AllUsers />} /> */}
         {/* <Route path="/signin" element={<SignIn links={links}/>} /> */}
       </Routes>
     </Router>
