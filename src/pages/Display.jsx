@@ -30,8 +30,9 @@ const Display = () => {
       setlinks(response.data.usersocials)
       setloading(false); // Set loading to false after data is fetched
     } catch (error) {
-      console.log('error', error)
-      setloading(false); // Set loading to false in case of error
+      console.log('error', error.response.data.message);  
+      setloading(false);
+      return alert(error.response.data.message);
     }
 
   }

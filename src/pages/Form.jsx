@@ -35,7 +35,9 @@ export default function Form() {
       navigate(`/display/${user_name}`);
       setloading(false);
     } catch (error) {
-      console.log('error', error);
+      console.log('error', error.response.data.message);  
+      setloading(false);
+      return alert(error.response.data.message);
     }
   };
 

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 
 
@@ -8,6 +8,7 @@ const SignUp = () => {
   const [user, setuser] = useState('');
   const navigate = useNavigate();
   const [loading, setloading] = useState(false); // Set initial loading state to true
+  const user_name = localStorage.getItem('user_name');
 
 
   const handle_submit = async (e) => {
@@ -16,13 +17,16 @@ const SignUp = () => {
     try {
       const response = await axios.post('https://socnet-backend.vercel.app/signup', { username: user });
       // const response = await axios.post('http://localhost:3000/signup', { username: user });
-      // console.log('user registered', response.data.new_user);
+      console.log('user registered', response.data);
       localStorage.setItem("user_id", response.data.new_user._id);
       localStorage.setItem("user_name", response.data.new_user.username);
       setloading(false);
       navigate('/form');
     } catch (error) {
-      console.log('error', error);
+      console.log('error', error.response.data.message);  
+      setloading(false);
+      return alert(error.response.data.message);
+
     }
   };
 
@@ -50,9 +54,9 @@ const SignUp = () => {
 
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-black pixel-bg px-2">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-black pixel-bg px-2">
       <motion.div
-        className="w-full max-w-sm bg-zinc-800 border-8 border-zinc-700 p-6 md:p-8 rounded-lg"
+        className="w-full max-w-sm bg-zinc-800 border-8 border-zinc-700 p-6 md:p-8 rounded-lg "
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5 }}
@@ -79,6 +83,7 @@ const SignUp = () => {
           </motion.button>
         </form>
       </motion.div>
+      <p className="mt-8 text-zinc-200">already registered..? <Link to={`/display/${user_name}`} className=" px-2 pb-1 border-4 border-zinc-600 rounded-lg font-bold hover:bg-zinc-700">view SocNet</Link></p>
     </div>
   );
 };
