@@ -22,6 +22,7 @@ const AllUsers = () => {
             // const response = await axios.get(`http://localhost:3000/all/${admin}`);
             setUsers(response.data.users);
             setLoading(false);
+            console.log("users by axios", response.data.users);
         } catch (error) {
             console.log("error", error.response.data.message);
             setLoading(false);
@@ -32,17 +33,22 @@ const AllUsers = () => {
     };
 
     const deleteUser = async (username) => {
+            console.log('process', secret)
+
         if (admin !== secret) {
+            setLoading(false);
             return alert("Unauthorized...!! you are not admin");
         }
-        alert(`Are you sure you want to delete ${username}`);
+        alert(`Are you sure you want to delete ${username}`, "Confirm Delete", "Yes", "No");
         try {
-            await axios.delete(`https://socnet-backend.vercel.app/del/${username}/${admin}`);
+            await axios.delete(`https://socnet-backend.vercel.app/del/${admin}/${username}`);
             // await axios.delete(`http://localhost:3000/del/${admin}/${username}`);
             setUsers(users.filter(user => user.username !== username));
         } catch (error) {
             console.log("error", error.response.data.message);
             return alert(error.response.data.message);
+        }finally {
+            setLoading(false);
         }
     };
 
