@@ -94,7 +94,7 @@ const Display = () => {
         transition={{ duration: 0.5 }}
       >
         <motion.p
-          className="text-center text-5xl"
+          className="text-center text-6xl"
           animate={{ rotate: [0, 10, -10, 10, -10, 0] }}
           transition={{ repeat: Infinity, duration: 0.4, repeatDelay: 2 }}
         >
@@ -139,7 +139,7 @@ const Display = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.4 }}
-      > <a href="/" className="text-[13px] p-2  hover:bg-zinc-800 text-zinc-500 my-2 rounded-lg animate-pulse border-2 border-zinc-700 ">Create your ' SocNet '</a>
+      > <a href="/" className="text-[13px] p-2 bg-zinc-800 hover:bg-zinc-700 text-zinc-400 my-2 rounded-lg animate-pulse border-2 border-zinc-700 ">Create your ' SocNet '</a>
         <p className="mt-4">© 2025 SocNet. All rights reserved.</p>
         <p className="pb-6">
           made with <FaHeart className="inline"></FaHeart> by{" "}

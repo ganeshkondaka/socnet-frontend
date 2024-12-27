@@ -53,7 +53,7 @@ const Landing = () => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <CircuitBoard size={80} className="text-blue-400 animate-pulse hover:animate-spin" />
+            <CircuitBoard size={80} className="text-blue-400 animate-spin" />
           </motion.div>
           <motion.p
             className="text-xl text-center max-w-xl"
