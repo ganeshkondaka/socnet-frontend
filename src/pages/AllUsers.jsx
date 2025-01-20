@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { FaTrash, FaHeart } from "react-icons/fa";
-import { useParams } from "react-router-dom";
+import { FaTrash, FaHeart, FaEye } from "react-icons/fa";
+import { Link, useParams } from "react-router-dom";
 
 const AllUsers = () => {
     const [users, setUsers] = useState([]);
@@ -27,13 +27,13 @@ const AllUsers = () => {
             console.log("error", error.response.data.message);
             setLoading(false);
             return alert(error.response.data.message);
-        }finally {
+        } finally {
             setLoading(false);
         }
     };
 
     const deleteUser = async (username) => {
-            // console.log('process', secret)
+        // console.log('process', secret)
 
         if (admin !== secret) {
             setLoading(false);
@@ -47,7 +47,7 @@ const AllUsers = () => {
         } catch (error) {
             console.log("error", error.response.data.message);
             return alert(error.response.data.message);
-        }finally {
+        } finally {
             setLoading(false);
         }
     };
@@ -87,12 +87,20 @@ const AllUsers = () => {
                         <span className="text-zinc-200 font-medium">
                             {user.username}
                         </span>
-                        <button
-                            onClick={() => deleteUser(user.username)}
-                            className="text-red-500 hover:text-red-600 hover:scale-110 transition-all duration-200"
-                        >
-                            <FaTrash />
-                        </button>
+
+                        <div className="flex justify-center">
+                            <Link
+                                className="pr-10"
+                                to={`/display/${user.username}`}>
+                                <FaEye className="inline text-blue-500 hover:text-red-600 hover:scale-150 transition-all duration-200"
+                                /></Link>
+                            <button
+                                onClick={() => deleteUser(user.username)}
+                                className="text-red-500 hover:text-red-600 hover:scale-110 transition-all duration-200"
+                            >
+                                <FaTrash />
+                            </button>
+                        </div>
                     </div>
                 ))}
             </div>

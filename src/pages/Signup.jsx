@@ -66,11 +66,11 @@ const SignUp = () => {
             <label className="block text-zinc-200 font-bold mb-2">Username</label>
             <input
               type="text"
-              placeholder="Create your username"
+              placeholder="Create your username(without spaces)"
               value={user}
-              onChange={(e) => setuser(e.target.value)}
+              onChange={(e) => setuser(e.target.value.replaceAll(' ', '_'))}
               required
-              className="w-full bg-zinc-900 border-4 border-zinc-600 text-zinc-200 rounded-lg px-4 py-2 pixel-text"
+              className="w-full text-sm bg-zinc-900 border-4 border-zinc-600 text-zinc-200 rounded-lg px-4 py-2 pixel-text"
             />
           </div>
           <motion.button
